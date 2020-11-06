@@ -803,6 +803,8 @@ class BrowserViewController: UIViewController {
             self.presentVPNCallout()
         }
         
+        self.presentDefaultBrowserIntroScreen()
+        
         screenshotHelper.viewIsVisible = true
         screenshotHelper.takePendingScreenshots(tabManager.allTabs)
 
@@ -888,6 +890,10 @@ class BrowserViewController: UIViewController {
         present(popup, animated: false)
         
         showedPopup.value = true
+    }
+    
+    private func presentDefaultBrowserIntroScreen() {
+        present(DefaultBrowserIntroCalloutViewController(), animated: true)
     }
 
     // THe logic for shouldShowWhatsNewTab is as follows: If we do not have the LatestAppVersionProfileKey in
